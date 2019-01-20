@@ -4,7 +4,7 @@ import sqlite3
 class BancoDeDados:
     """Classe que representa o banco de dados da aplicação"""
     def __init__(self, nome='bancodb'):
-        self.nome, self.conexao = nome, None
+        self.nome, self.conexao = nome + '.sqlite3', None
 
     def conecta(self):
         """Conecta ao arquivo do banco de dados nome.sqlite3"""
