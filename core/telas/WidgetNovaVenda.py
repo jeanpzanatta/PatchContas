@@ -1,9 +1,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from datetime import date
 
 
 class WidgetNovaVenda(QtWidgets.QWidget):
     def __init__(self, form):
         super(WidgetNovaVenda, self).__init__()
+
+        self.hoje = str(date.today()).split('-')
+        self.dia_hoje = int(self.hoje[0])
+        self.mes_hoje = int(self.hoje[1])
+        self.ano_hoje = int(self.hoje[2])
+
         self.Form = form
         self.Form.setObjectName("NovaVenda")
         self.Form.resize(640, 460)
@@ -67,7 +74,7 @@ class WidgetNovaVenda(QtWidgets.QWidget):
         self.data_primeira_parcela.setWrapping(False)
         self.data_primeira_parcela.setCurrentSection(QtWidgets.QDateTimeEdit.DaySection)
         self.data_primeira_parcela.setCalendarPopup(True)
-        self.data_primeira_parcela.setDate(QtCore.QDate(2019, 1, 1))
+        self.data_primeira_parcela.setDate(QtCore.QDate(self.dia_hoje, self.mes_hoje, self.ano_hoje))
         self.data_primeira_parcela.setObjectName("data_primeira_parcela")
         self.horizontalLayout_11.addWidget(self.data_primeira_parcela)
         self.verticalLayout_8.addLayout(self.horizontalLayout_11)

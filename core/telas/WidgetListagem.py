@@ -41,6 +41,8 @@ class WidgetListagem(QtWidgets.QWidget):
         self.model.setHeaderData(self.DATA, QtCore.Qt.Horizontal, "Data")
         self.model.setHeaderData(self.PARCELAS, QtCore.Qt.Horizontal, "Nº de Parcelas")
 
+        self.treeView.accessibleName()
+
     def ajutar_tamanho(self):
         for colunas in self.numero_colunas:
             if colunas != 1:
@@ -54,13 +56,13 @@ class WidgetListagem(QtWidgets.QWidget):
         self.btn_voltar.setText(_translate("Form", "Voltar"))
 
     def add_item(self, nome, descricao, valor, data, parcelas):
-        model = self.model
-        model.insertRow(0)
-        model.setData(self.model.index(0, self.NOME), nome)
-        model.setData(self.model.index(0, self.DESCRICAO), descricao)
-        model.setData(self.model.index(0, self.VALOR), valor)
-        model.setData(self.model.index(0, self.DATA), data)
-        model.setData(self.model.index(0, self.PARCELAS), parcelas)
+        self.model.insertRow(0)
+        self.model.setData(self.model.index(0, self.NOME), nome)
+        self.model.setData(self.model.index(0, self.DESCRICAO), descricao)
+        self.model.setData(self.model.index(0, self.VALOR), valor)
+        self.model.setData(self.model.index(0, self.DATA), data)
+        self.model.setData(self.model.index(0, self.PARCELAS), parcelas)
+        self.ajutar_tamanho()
 
 
 if __name__ == "__main__":

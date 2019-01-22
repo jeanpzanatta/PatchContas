@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import datetime
+from datetime import date
 
 
 class WidgetNovaCompra(QtWidgets.QWidget):
@@ -9,7 +9,7 @@ class WidgetNovaCompra(QtWidgets.QWidget):
     def __init__(self, form):
         super(WidgetNovaCompra, self).__init__()
 
-        self.hoje = str(datetime.date.today()).split('-')
+        self.hoje = str(date.today()).split('-')
         self.dia_hoje = int(self.hoje[0])
         self.mes_hoje = int(self.hoje[1])
         self.ano_hoje = int(self.hoje[2])

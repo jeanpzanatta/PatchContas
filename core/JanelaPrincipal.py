@@ -16,7 +16,8 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
 
         self.MainWindow = main_window
         self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.resize(650, 490)
+        self.MainWindow.setFixedSize(650, 490)
+
         self.centralwidget = QtWidgets.QWidget(self.MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -44,13 +45,18 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
         self.action_Sair = QtWidgets.QAction(self.MainWindow)
         self.action_Sair.setObjectName("action_Sair")
         self.action_Sair.setShortcut('Ctrl+Q')
+        self.action_Inicio = QtWidgets.QAction(self.MainWindow)
+        self.action_Inicio.setObjectName('Action_Inicio')
+        self.action_Inicio.setShortcut('Ctrl+I')
         self.menuArquivo.addAction(self.action_Sair)
+        self.menuArquivo.addAction(self.action_Inicio)
         self.menuAjuda.addAction(self.actionObter_Ajuda)
         self.menubar.addAction(self.menuArquivo.menuAction())
         self.menubar.addAction(self.menuAjuda.menuAction())
 
         self.action_Sair.triggered.connect(QtWidgets.qApp.quit)
         self.actionObter_Ajuda.triggered.connect(self.ajuda)
+        self.action_Inicio.triggered.connect(self.mudar_tela_inicial)
 
         self.widget_atual = WidgetInicial.WidgetInicial(QtWidgets.QWidget())
         self.MainWindow.setCentralWidget(self.widget_atual.Form)
@@ -84,14 +90,17 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
     def retranslate_ui(self, main_window):
         self.MainWindow = main_window
         _translate = QtCore.QCoreApplication.translate
-        self.MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.MainWindow.setWindowTitle(_translate("MainWindow", "PatchContas"))
         self.menuArquivo.setTitle(_translate("MainWindow", "Arquivo"))
         self.menuAjuda.setTitle(_translate("MainWindow", "Ajuda"))
         self.actionObter_Ajuda.setText(_translate("MainWindow", "Obter &Ajuda"))
         self.action_Sair.setText(_translate("MainWindow", "&Sair"))
+        self.action_Inicio.setText(_translate('MainWindow', '&Inicio'))
 
     def ajuda(self):
-        print('Ajuda!')  # Aqui entra um pop up com o contato para ajuda.
+        mensagem = 'Para obter ajuda procure por:\nJean Pedro Zanatta\nemail: jeanpedrozanatta@gmail.com'
+        titulo = 'Ajuda'
+        QtWidgets.QMessageBox.about(self, titulo, mensagem)
 
     def salvar_dados_venda(self):
         """Ordem dos dados: 'Nome do cliente, Descrição da venda, Valor, data, numero parcelas"""
@@ -108,7 +117,7 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
             )
             self.mudar_tela_inicial()
         except ValueError:
-            print('deu erro')  # Aqui vai entrar um popup de erro...
+            QtWidgets.QMessageBox.about(self, 'Erro', 'Verifique todos os campos e tente novamente.')
         finally:
             self.banco.desconecta()
 
@@ -127,7 +136,7 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
             )
             self.mudar_tela_inicial()
         except ValueError:
-            print('deu erro')  # Aqui vai entrar um popup de erro...
+            QtWidgets.QMessageBox.about(self, 'Erro', 'Verifique todos os campos e tente novamente.')
         finally:
             self.banco.desconecta()
 
