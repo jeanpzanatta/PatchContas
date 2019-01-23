@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from telas import WidgetInicial, WidgetNovaCompra, WidgetNovaVenda, WidgetListagem
+from telas import WidgetInicial, WidgetNovaCompra, WidgetNovaVenda, WidgetListagem, Grafico
 from BancoDeDados import Banco1
 
 
@@ -16,7 +16,7 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
 
         self.MainWindow = main_window
         self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.setFixedSize(650, 490)
+        self.MainWindow.setFixedSize(650, 495)
 
         self.centralwidget = QtWidgets.QWidget(self.MainWindow)
         self.centralwidget.setObjectName("centralwidget")

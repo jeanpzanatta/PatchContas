@@ -1,4 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+try:
+    from telas import Grafico
+except ModuleNotFoundError:
+    import Grafico
 
 
 class WidgetInicial(QtWidgets.QWidget):
@@ -53,9 +57,8 @@ class WidgetInicial(QtWidgets.QWidget):
         self.lbl_infos_importantes = QtWidgets.QLabel(self.verticalLayoutWidget_3)
         self.lbl_infos_importantes.setObjectName("lbl_infos_importantes")
         self.verticalLayout_3.addWidget(self.lbl_infos_importantes)
-        self.calendarWidget = QtWidgets.QCalendarWidget(self.verticalLayoutWidget_3)
-        self.calendarWidget.setObjectName("calendarWidget")
-        self.verticalLayout_3.addWidget(self.calendarWidget)
+        self.grafico = Grafico.Grafico()
+        self.verticalLayout_3.addWidget(self.grafico)
 
         self.Form.show()
 
@@ -72,8 +75,8 @@ class WidgetInicial(QtWidgets.QWidget):
         self.lbl_verificar_passada.setText(_translate("Form", "Verificar:"))
         self.btn_compra_passada.setText(_translate("Form", "Compra Passada"))
         self.btn_venda_passada.setText(_translate("Form", "Venda Passada"))
-        self.lbl_infos_importantes.setText(_translate("Form", "Aqui serão exibidas informações importantes,"
-                                                              " mas por enquanto, fique com esse calendário:"))
+        self.lbl_infos_importantes.setText(_translate("Form", "Gráfico de movimentação de dinheiro por tempo "
+                                                              "(em implementação, não é um grafico real ainda):"))
 
 
 if __name__ == "__main__":
