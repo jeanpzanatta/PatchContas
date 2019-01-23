@@ -123,9 +123,11 @@ class WidgetNovaVenda(QtWidgets.QWidget):
         self.lbl_desc_venda.setText(_translate("Form", "Descrição da venda:"))
         self.lbl_valor_venda.setText(_translate("Form", "Valor da Venda: "))
         self.lbl_reais.setText(_translate("Form", "Reais"))
-        self.lbl_primeira_parcela.setText(_translate("Form", "Data da primeira parcela (ou da compra para pagamento a vista): "))
+        self.lbl_primeira_parcela.setText(_translate("Form", "Data da primeira parcela "
+                                                             "(ou da compra para pagamento a vista): "))
         self.lbl_n_parcelas.setText(_translate("Form", "Nº de Parcelas: "))
-        self.lbl_aviso_pgmt.setText(_translate("Form", "Selecione 0 para Débito/Dinheiro, ou 1 para no credito sem parcelas."))
+        self.lbl_aviso_pgmt.setText(_translate("Form", "Selecione 0 para Débito/Dinheiro, "
+                                                       "ou 1 para no credito sem parcelas."))
         self.btn_cancel.setText(_translate("Form", "Cancelar"))
         self.btn_concluir.setText(_translate("Form", "Concluir"))
 

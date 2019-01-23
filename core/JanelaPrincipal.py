@@ -18,15 +18,6 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
         self.MainWindow.setObjectName("MainWindow")
         self.MainWindow.setFixedSize(650, 495)
 
-        self.centralwidget = QtWidgets.QWidget(self.MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 631, 421))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(self.MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 638, 23))
         self.menubar.setObjectName("menubar")
@@ -58,15 +49,12 @@ class JanelaPrincipal(QtWidgets.QMainWindow):
         self.actionObter_Ajuda.triggered.connect(self.ajuda)
         self.action_Inicio.triggered.connect(self.mudar_tela_inicial)
 
-        self.widget_atual = WidgetInicial.WidgetInicial(QtWidgets.QWidget())
-        self.MainWindow.setCentralWidget(self.widget_atual.Form)
-
         self.MainWindow.show()
 
         self.retranslate_ui(self.MainWindow)
         QtCore.QMetaObject.connectSlotsByName(self.MainWindow)
 
-        self.verificar_botoes()
+        self.mudar_tela_inicial()
 
     def verificar_botoes(self):
         """Serve para atualizar os botoes que aparecem na tela inicial, dependendo do Widget q está sendo exibido."""
