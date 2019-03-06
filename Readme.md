@@ -12,4 +12,6 @@ Ainda em desenvolvimento, alterações futuras:
 - [ ] Adicionar um gŕafico com valor de compras por tempo, vendas por tempo, e lucro por tempo.
 ---
 
+Projeto substituido por uma aplicação web: https://github.com/jeanpzanatta/PatchApp
+
 Contato: jeanpedrozanatta@gmail.com
